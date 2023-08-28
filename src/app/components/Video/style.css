@@ -1,0 +1,504 @@
+@media screen and (min-width: 577px) {
+    .TaeqwP {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 80vh;
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .TaeqwP {
+        top: 0px;
+        border-radius: unset;
+    }
+}
+
+.TaeqwP {
+    position: fixed;
+    overflow: hidden auto;
+    scroll-snap-type: y mandatory;
+    z-index: 2147483645;
+    touch-action: pan-x;
+    scroll-behavior: smooth;
+}
+
+.TaeqwP::-webkit-scrollbar {
+    display: none;
+}
+
+.mountPoint * {
+    box-sizing: border-box;
+    outline: 0px;
+    line-height: normal;
+    --primary-blue: #396ff2;
+    --neutral-gray: #b9b9b9;
+    --neutral: #818181;
+    --neutral-dark: #161616;
+    --neutral-light: #f6f6f6;
+    --error: #fc364d;
+    --caution: #d6a036;
+    --success: #66bf9e;
+    word-break: unset !important;
+    font-family: Poppins, sans-serif !important;
+}
+
+@media screen and (max-width: 500px) {
+    .TqpeWW {
+        width: 100% !important;
+    }
+}
+
+.TqpeWW {
+    display: flex;
+    height: auto;
+    width: 500px;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.TcqeEa {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    z-index: -1;
+}
+
+.TkdkJq {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    clip-path: inset(-10px);
+    object-fit: cover;
+    transform: none;
+    overflow-y: auto;
+}
+
+.TazcOk {
+    visibility: visible;
+    width: 100%;
+    bottom: 30vh;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    padding: 130px;
+    background: transparent;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow-y: auto;
+}
+
+.bWYjSp {
+    position: fixed;
+    display: flex;
+    margin: 0px auto;
+    inset: 0px;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    z-index: 2147483645;
+    width: max-content;
+    transform: translate(342.562px, 0px);
+}
+
+.bWYjSp>button:disabled {
+    border-color: rgb(238, 238, 238);
+    background: transparent;
+    color: rgb(238, 238, 238);
+}
+
+.bWYjSp>button:first-child {
+    transform: rotate(180deg);
+}
+
+.bWYjSp>button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue);
+    background: var(--primary-blue);
+    color: rgb(255, 255, 255);
+    margin: 8px 0px;
+    transition: color 0.3s ease 0s, border-color 0.3s ease 0s,
+        background-color 0.3s ease 0s;
+    padding: 0px;
+    display: grid;
+    place-items: center;
+}
+
+.mountPoint button {
+    cursor: pointer;
+    outline: none !important;
+}
+
+.mountPoint body,
+.mountPoint input,
+.mountPoint button {
+    font-size: 14px;
+}
+
+.bWYjSp>button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue);
+    background: var(--primary-blue);
+    color: rgb(255, 255, 255);
+    margin: 8px 0px;
+    transition: color 0.3s ease 0s, border-color 0.3s ease 0s,
+        background-color 0.3s ease 0s;
+    padding: 0px;
+    display: grid;
+    place-items: center;
+}
+
+.mountPoint button {
+    cursor: pointer;
+    outline: none !important;
+}
+
+.mountPoint body,
+.mountPoint input,
+.mountPoint button {
+    font-size: 14px;
+}
+
+.hpUCuA {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2147483644;
+}
+
+.isHzPS {
+    display: flex;
+    gap: 4px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(rgb(0, 0, 0), transparent);
+    box-shadow: none;
+    z-index: 1;
+    border: transparent !important;
+    margin: 0px !important;
+}
+
+.gmCcTH {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.gmCcTH>img {
+    border-radius: 50%;
+}
+
+.cnTjGy {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+    border: 0px;
+    min-width: max-content;
+    height: max-content;
+    background: transparent !important;
+}
+
+.cVHMpv {
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    margin-top: auto;
+    z-index: 2147483640;
+}
+
+.titledXTrWE {
+    position: absolute;
+    /* Se ainda precisar do posicionamento absoluto */
+    bottom: 5px;
+    /* Se ainda precisar do alinhamento inferior */
+    margin-bottom: 10px;
+}
+
+.dXTrWE {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    padding-left: 20px;
+    width: 95%;
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    background-color: rgba(50,
+            50,
+            50,
+            0.6);
+    /* O último número é a opacidade (alpha), ajuste conforme necessário */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Adicionado text-shadow para o contorno */
+}
+
+@media screen and (max-width: 576px) {
+    .dXTrWE {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15.5px;
+        line-height: 22px;
+        padding-left: 20px;
+        padding-right: 10px;
+        width: 95%;
+        bottom: 1px;
+        margin-bottom: 10px;
+    }
+}
+
+.ksuiaN {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    overflow-x: auto;
+    margin-top: auto;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.jJEAfT {
+    display: flex;
+    padding: 15px;
+    overflow-x: auto;
+    margin-top: auto;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-mask-image: linear-gradient(to left, transparent 1%, black 5%);
+    position: absolute;
+    bottom: 45px;
+    width: 90%;
+}
+
+.gbCROG {
+    width: 232px;
+    height: 48px;
+    color: white;
+    background: rgb(0, 0, 0);
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 12px 0px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+.bqAneo {
+    display: flex;
+    text-decoration: none;
+    align-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    color: white !important;
+}
+
+.krNkcP {
+    position: absolute;
+    bottom: 190px;
+    right: 10px;
+    display: grid;
+    padding-right: 5px;
+    flex-direction: column;
+    gap: 20px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.dDYExP {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.deznxB {
+    font-weight: 600;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-shadow: rgba(0, 0, 0, 0.48) 0px 0px 8px;
+    margin: 0px;
+    text-align: center;
+    min-height: 16px;
+}
+
+.gmCcTH {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.gmaXK {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.fade-out {
+    transition: opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+.TazcOk>div {
+    opacity: 1;
+    transition: opacity 0.3s ease 0s;
+    width: 64px;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 64px;
+    border-radius: 50%;
+    padding: 20px;
+    background-color: rgba(22, 22, 22, 0.6);
+    animation: 2s ease 0s infinite normal none running pulsePlay;
+}
+
+.TkdAeq {
+    position: absolute;
+    top: 30%;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    margin: 0px auto;
+    width: max-content;
+    z-index: 1;
+    animation: 2s ease 0s infinite normal none running pulseMute;
+}
+
+.TuQgi {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 4px;
+}
+
+.TuQgi>div {
+    appearance: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 2px;
+    outline: none;
+    margin: auto;
+    background-image: -webkit-gradient(linear,
+            50% 0%,
+            50% 100%,
+            from(#FF6600),
+            to(rgb(57, 111, 242)));
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(129, 129, 129);
+}
+
+@keyframes handScroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-40px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.handIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    right: 23px;
+    top: 5px;
+    bottom: 0px;
+    opacity: 0;
+    pointer-events: none;
+    animation: handScroll 1.5s infinite 3s, fadeIn 1s 2s forwards, fadeOut 1s 14s forwards;
+}
+
+.carousel-indicators {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+}
+
+.carousel-indicator {
+    width: 7px;
+    height: 7px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+.carousel-indicator.active {
+    background-color: white;
+}
