@@ -3,15 +3,9 @@ import { useState } from 'react'
 
 import Image from "next/image"
 
-import drink from '../../public/drinks.jpg'
-
 import logo from '../../public/image.jpg'
 
 import Video from './components/Video/Video'
-
-import moldura from '../../public/moldura.png'
-
-import hb from '../../public/images.jpg'
 
 export default function Home() {
   const link = "https://classic.exame.com/wp-content/uploads/2016/12/madero-restaurante.jpg?quality=70&strip=info&w=680"
@@ -65,6 +59,7 @@ export default function Home() {
         <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle">
           {cardapioOptions.map((item, index) => (
             <button
+              key={item + index}
               type="button"
               className={`${index == 0 ?
                 "bg-white px-8 py-2 text-sm font-bold text-black w-auto border-black border-2 whitespace-nowrap" :
