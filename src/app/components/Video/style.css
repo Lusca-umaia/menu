@@ -52,8 +52,8 @@
 
 .TqpeWW {
     display: flex;
-    height: auto;
-    width: 500px;
+    /* width: 500px; */
+    height: 100vh;
     flex-direction: column;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -63,7 +63,7 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     pointer-events: auto;
-    z-index: 2;
+    z-index: 20;
 }
 
 .TcqeEa {

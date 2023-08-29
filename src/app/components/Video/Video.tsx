@@ -65,6 +65,8 @@ export default function Home({ indexVideo }: { indexVideo: number }) {
                         setCurrentVideoIndex(videoIndex);  // Update current video index here
                         if (videoRefs.current[videoIndex]) {
                             videoRefs.current[videoIndex].play();
+                            const element = document.getElementById('containerVideo')
+                            // element ? element.style.zIndex = '20' : null
                             if (!isPlaying) {
                                 gaPlayVideo(videos_url[videoIndex].url)
                                 setIsPlaying(true);
@@ -78,6 +80,8 @@ export default function Home({ indexVideo }: { indexVideo: number }) {
                     } else {
                         if (videoRefs.current[videoIndex]) {
                             videoRefs.current[videoIndex].pause();
+                            // const element = document.getElementById('containerVideo')
+                            // element ? element.style.zIndex = '2' : null
                         }
                     }
                 });
@@ -190,7 +194,7 @@ export default function Home({ indexVideo }: { indexVideo: number }) {
     return (
         <>
             {
-                <div className="TqpeWW" >
+                <div className="TqpeWW" id="containerVideo">
                     <div className="TcqeEa">
                         <video
                             ref={(element) => {
@@ -209,9 +213,8 @@ export default function Home({ indexVideo }: { indexVideo: number }) {
                     </div>
                     <header className="isHzPS">
                         <div className="gmCcTH">
-                            <Image src={Logo} width={50} alt="logo" />
-                            {/* <img src={"../../../../public/image.jpg"} className="gmaXK" /> */}
-                            <h1 className="cmMAYj">Roister</h1>
+                            <Image src={"https://www.menuk.com.br/logo.jpg"} width={50} alt="logo" height={50} className="gmaXK" />
+                            <h1 className="text-white">Roister</h1>
                         </div>
                         <div className="gmCcTH">
                             <div className="jWDGig">
