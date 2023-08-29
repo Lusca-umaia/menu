@@ -65,8 +65,8 @@ export default function Home({ indexVideo }: { indexVideo: number }) {
                         setCurrentVideoIndex(videoIndex);  // Update current video index here
                         if (videoRefs.current[videoIndex]) {
                             videoRefs.current[videoIndex].play();
-                            const element = document.getElementById('containerVideo')
-                            // element ? element.style.zIndex = '20' : null
+                            const element = document.getElementById('header')
+                            element ? element.style.zIndex = '2' : null
                             if (!isPlaying) {
                                 gaPlayVideo(videos_url[videoIndex].url)
                                 setIsPlaying(true);
@@ -80,8 +80,14 @@ export default function Home({ indexVideo }: { indexVideo: number }) {
                     } else {
                         if (videoRefs.current[videoIndex]) {
                             videoRefs.current[videoIndex].pause();
-                            // const element = document.getElementById('containerVideo')
-                            // element ? element.style.zIndex = '2' : null
+                            const element = document.getElementById('header')
+
+                            element ? element.style.opacity = '0' : null
+                            setTimeout(() => {
+                                element ? element.style.zIndex = '20' : null
+                                element ? element.style.opacity = '1' : null
+                            }, 100);
+
                         }
                     }
                 });

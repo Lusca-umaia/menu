@@ -53,214 +53,118 @@ export default function Home() {
 
   const [selectButton, setSelectButton] = useState(1)
 
-  return (
-    <>
-      {/* <img src={link} alt="" width={"100%"} className='absolute top-0' /> */}
-      <section className="bg-gray-100 min-h-[100vh] max-w-[1000px] mx-auto my-0 relative w-[100%] rounded-[10px]">
-        <div className="flex gap-4 pt-6 pb-4 items-center bg-white	w-[100%] mx-auto px-4">
-          <Image src={logo} alt="Logo do site" className="w-[60px] h-[60px] rounded-[50%] max-[475px]:w-[55px] max-[475px]:h-[55px] border-2 shadow" />
-          <h1 className="font-bold text-base">Roister - Rua 24 de outubro</h1>
-        </div>
-        <header className="flex flex-col bg-white top-[0] sticky z-10 pt-2 shadow-lg">
-          <section className="flex gap-4 min-w-full overflow-auto scroll-remove px-2 pb-2">
-            <button
-              type="button"
-              className=" bg-white px-3.5 py-3.5 text-sm font-bold text-black min-w-[180px] border-black border-2"
-            >
-              Cardápio Almoço
-            </button>
-            <button
-              type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-medium text-gray-700 min-w-[auto] border-2"
-            >
-              Bebidas
-            </button>
-            <button
-              type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-medium text-gray-700 min-w-[auto] border-2"
-            >
-              Drinks
-            </button>
-            <button
-              type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-medium text-gray-700 min-w-[180px] border-2"
-            >
-              Vinhos e Espumante
-            </button>
-          </section>
-          {/* <div>
-          <nav className="mx-auto " aria-label="Progress">
-            <ol
-              role="list"
-              className="overflow-auto rounded-md flex rounded-none pb-3"
-            >
-              {steps.map((step, stepIdx) => (
-                <li key={step.id} className="relative overflow-hidden flex-1 min-w-[130px] border-b border-t border-gray-200">
-                  <div
-                    className={classNames(
-                      'overflow-hidden border border-gray-200 border-0'
-                    )}
-                  >
-                    {step.status === 'current' ? (
-                      <a href={step.href} aria-current="step">
-                        <span
-                          className="absolute bg-black bottom-0 top-auto h-1 w-full"
-                          aria-hidden="true"
-                        />
-                        <span
-                          className={classNames(
-                            stepIdx !== 0 ? 'lg:pl-9' : '',
-                            'flex items-center px-6 py-2 text-sm font-medium'
-                          )}
-                        >
-                          <span className="ml-4 mt-0.5 flex  flex-col">
-                            <span className="text-sm font-medium text-black">{step.name}</span>
-                          </span>
-                        </span>
-                      </a>
-                    ) : (
-                      <a href={step.href} className="group">
-                        <span
-                          className="absolute left-0 top-0 h-full bg-transparent lg:bottom-0 lg:top-auto lg:h-1 w-full"
-                          aria-hidden="true"
-                        />
-                        <span
-                          className={classNames(
-                            stepIdx !== 0 ? 'lg:pl-9' : '',
-                            'flex items-center px-6 py-2 text-sm font-medium'
-                          )}
-                        >
-                          <span className="ml-4 mt-0.5 flex min-w-0 flex-col">
-                            <span className="text-sm font-medium text-gray-500">{step.name}</span>
-                          </span>
-                        </span>
-                      </a>
-                    )}
+  const cardapioOptions = ['Cardápio Almoço', 'Bebidas', 'Drinks', 'Vinhos e Espumantes']
 
-                    {stepIdx !== 0 ? (
-                      <>
-                        <div className="absolute inset-0 left-0 top-0 w-3 block" aria-hidden="true">
-                          <svg
-                            className="h-full w-full text-gray-300"
-                            viewBox="0 0 12 82"
-                            fill="none"
-                            preserveAspectRatio="none"
-                          >
-                            <path d="M0.5 0V31L10.5 41L0.5 51V82" stroke="currentcolor" vectorEffect="non-scaling-stroke" />
-                          </svg>
-                        </div>
-                      </>
-                    ) : null}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </nav>
-        </div> */}
-        </header>
-        <main className="flex flex-col ">
-          <div>
-            <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
-              {actions.map((action, actionIdx) => (
-                <div
-                  key={action.title}
-                  className={classNames(
-                    actionIdx === 0 ? '' : '',
-                    actionIdx === 1 ? '' : '',
-                    actionIdx === actions.length - 2 ? '' : '',
-                    actionIdx === actions.length - 1 ? '' : '',
-                    'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
-                  )}
-                >
-                  <div>
-                    <h3 className="text-base font-medium leading-6 text-gray-900">
-                      <a href={action.href} className="focus:outline-none">
-                        <span className="absolute inset-0" aria-hidden="true" />
-                        {action.title}
-                      </a>
-                    </h3>
-                    <p className="mt-2 text-sm text-black font-light">
-                      {action.description}
-                    </p>
-                    <p className="mt-2 text-sm text-black font-medium	">
-                      R$ {action.price}
-                    </p>
-                  </div>
-                  <img src={action.link} alt="" className="w-[90px] h-[90px] max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+  return (
+    <section className="bg-gray-100 min-h-screen max-w-5xl mx-auto my-0 relative w-full">
+      <div className="flex gap-4 pt-3 pb-1.5 items-center bg-white w-full mx-auto px-4">
+        <Image src={logo} alt="Logo do site" className="w-16 h-16 rounded-full border-2 shadow" />
+        <h1 className="font-bold text-base">Roister - Rua 24 de outubro</h1>
+      </div>
+      <header className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-100" id='header'>
+        <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle">
+          {cardapioOptions.map((item, index) => (
+            <button
+              type="button"
+              className={`${index == 0 ?
+                "bg-white px-8 py-2 text-sm font-bold text-black w-auto border-black border-2 whitespace-nowrap" :
+                "bg-white px-8 py-2 text-sm font-medium text-gray-700 border-2 w-auto whitespace-nowrap"} `}
+            >
+              {item}
+            </button>
+          ))}
+        </section>
+      </header >
+      <main className="flex flex-col ">
+        <div>
+          <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
+          <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0">
+            {actions.map((action, actionIdx) => (
+              <div
+                key={action.title}
+                className={classNames(
+                  'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
+                )}
+              >
+                <div>
+                  <h3 className="text-base font-medium leading-6 text-gray-900">
+                    <a href={action.href} className="focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      {action.title}
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm text-black font-light">
+                    {action.description}
+                  </p>
+                  <p className="mt-2 text-sm text-black font-medium	">
+                    R$ {action.price}
+                  </p>
                 </div>
-              ))}
-            </div>
+                <img src={action.link} alt="" className="w-20 h-20" />
+              </div>
+            ))}
           </div>
-          <Video indexVideo={0} />
-          <div>
-            <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
-              {actions.map((action, actionIdx) => (
-                <div
-                  key={action.title}
-                  className={classNames(
-                    actionIdx === 0 ? '' : '',
-                    actionIdx === 1 ? '' : '',
-                    actionIdx === actions.length - 2 ? '' : '',
-                    actionIdx === actions.length - 1 ? '' : '',
-                    'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
-                  )}
-                >
-                  <div>
-                    <h3 className="text-base font-medium leading-6 text-gray-900">
-                      <a href={action.href} className="focus:outline-none">
-                        <span className="absolute inset-0" aria-hidden="true" />
-                        {action.title}
-                      </a>
-                    </h3>
-                    <p className="mt-2 text-sm text-black font-light">
-                      {action.description}
-                    </p>
-                    <p className="mt-2 text-sm text-black font-medium	">
-                      R$ {action.price}
-                    </p>
-                  </div>
-                  <img src={action.link} alt="" className="w-[90px] h-[90px] max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+        </div>
+        <Video indexVideo={0} />
+        <div>
+          <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
+          <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0">
+            {actions.map((action, actionIdx) => (
+              <div
+                key={action.title}
+                className={classNames(
+                  'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
+                )}
+              >
+                <div>
+                  <h3 className="text-base font-medium leading-6 text-gray-900">
+                    <a href={action.href} className="focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      {action.title}
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm text-black font-light">
+                    {action.description}
+                  </p>
+                  <p className="mt-2 text-sm text-black font-medium	">
+                    R$ {action.price}
+                  </p>
                 </div>
-              ))}
-            </div>
+                <img src={action.link} alt="" className="w-20 h-20" />
+              </div>
+            ))}
           </div>
-          <div>
-            <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
-              {actions.map((action, actionIdx) => (
-                <div
-                  key={action.title}
-                  className={classNames(
-                    actionIdx === 0 ? '' : '',
-                    actionIdx === 1 ? '' : '',
-                    actionIdx === actions.length - 2 ? '' : '',
-                    actionIdx === actions.length - 1 ? '' : '',
-                    'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
-                  )}
-                >
-                  <div>
-                    <h3 className="text-base font-medium leading-6 text-gray-900">
-                      <a href={action.href} className="focus:outline-none">
-                        <span className="absolute inset-0" aria-hidden="true" />
-                        {action.title}
-                      </a>
-                    </h3>
-                    <p className="mt-2 text-sm text-black font-light">
-                      {action.description}
-                    </p>
-                    <p className="mt-2 text-sm text-black font-medium	">
-                      R$ {action.price}
-                    </p>
-                  </div>
-                  <img src={action.link} alt="" className="w-[90px] h-[90px] max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+        </div>
+        <div>
+          <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
+          <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0">
+            {actions.map((action, actionIdx) => (
+              <div
+                key={action.title}
+                className={classNames(
+                  'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
+                )}
+              >
+                <div>
+                  <h3 className="text-base font-medium leading-6 text-gray-900">
+                    <a href={action.href} className="focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      {action.title}
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm text-black font-light">
+                    {action.description}
+                  </p>
+                  <p className="mt-2 text-sm text-black font-medium	">
+                    R$ {action.price}
+                  </p>
                 </div>
-              ))}
-            </div>
+                <img src={action.link} alt="" className="w-20 h-20" />
+              </div>
+            ))}
           </div>
-        </main >
-      </section >
-    </>
+        </div>
+      </main >
+    </section >
   )
 }
