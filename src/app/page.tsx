@@ -61,29 +61,29 @@ export default function Home() {
           <h1 className="font-bold text-base">Roister - Rua 24 de outubro</h1>
           <Image src={logo} alt="Logo do site" className="w-[60px] h-[60px] rounded-[50%] max-[475px]:w-[55px] max-[475px]:h-[55px] border-2 drop-shadow-md	" />
         </div>
-        <header className="flex flex-col bg-white top-[0] pt-2 sticky z-10 drop-shadow-md rounded-b-lg" id='headerMenu'>
-          <section className="flex min-w-full overflow-auto pb-3 ">
+        <header className="flex flex-col bg-white top-[0] pt-2 sticky z-10">
+          <section className="flex min-w-full overflow-auto scroll-remove">
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-black hover:bg-gray-50 min-w-[180px] border-b-black border-b-2"
+              className=" bg-white px-3.5 py-3.5 text-sm font-semibold text-black min-w-[180px] border-b-black border-b-2"
             >
               Cardápio Almoço
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 min-w-[auto] "
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] "
             >
               Bebidas
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 min-w-[auto] "
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] "
             >
               Drinks
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 min-w-[180px]"
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[180px]"
             >
               Vinhos e Espumante
             </button>
@@ -160,7 +160,7 @@ export default function Home() {
         </header>
         <main className="flex flex-col ">
           <div>
-            <h2 className="pl-4 my-3 font-semibold text-base">Cardápio Almoço</h2>
+            <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
             <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
@@ -194,7 +194,7 @@ export default function Home() {
           </div>
           <Video indexVideo={0} />
           <div>
-            <h2 className="pl-4 my-3 font-semibold text-base">Cardápio Almoço</h2>
+            <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
             <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
@@ -227,7 +227,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h2 className="pl-4 my-3 font-semibold text-base">Cardápio Almoço</h2>
+            <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
             <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
