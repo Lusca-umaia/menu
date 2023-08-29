@@ -57,33 +57,33 @@ export default function Home() {
     <>
       {/* <img src={link} alt="" width={"100%"} className='absolute top-0' /> */}
       <section className="bg-gray-100 min-h-[100vh] max-w-[1000px] mx-auto my-0 relative w-[100%] rounded-[10px]">
-        <div className="flex gap-4 py-2 items-center bg-white justify-between	w-[100%] mx-auto px-4">
+        <div className="flex gap-4 pt-6 pb-4 items-center bg-white	w-[100%] mx-auto px-4">
+          <Image src={logo} alt="Logo do site" className="w-[60px] h-[60px] rounded-[50%] max-[475px]:w-[55px] max-[475px]:h-[55px] border-2 shadow" />
           <h1 className="font-bold text-base">Roister - Rua 24 de outubro</h1>
-          <Image src={logo} alt="Logo do site" className="w-[60px] h-[60px] rounded-[50%] max-[475px]:w-[55px] max-[475px]:h-[55px] border-2 drop-shadow-md	" />
         </div>
-        <header className="flex flex-col bg-white top-[0] pt-2 sticky z-10">
-          <section className="flex min-w-full overflow-auto scroll-remove">
+        <header className="flex flex-col bg-white top-[0] sticky z-10 pt-2 shadow-lg">
+          <section className="flex gap-4 min-w-full overflow-auto scroll-remove px-2 pb-2">
             <button
               type="button"
-              className=" bg-white px-3.5 py-3.5 text-sm font-semibold text-black min-w-[180px] border-b-black border-y-2 border-x-2"
+              className=" bg-white px-3.5 py-3.5 text-sm font-bold text-black min-w-[180px] border-black border-2"
             >
               Cardápio Almoço
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] border-y-2 border-r-2"
+              className=" bg-white px-3.5 py-2.5 text-sm font-medium text-gray-700 min-w-[auto] border-2"
             >
               Bebidas
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] border-y-2 border-r-2"
+              className=" bg-white px-3.5 py-2.5 text-sm font-medium text-gray-700 min-w-[auto] border-2"
             >
               Drinks
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[180px] border-y-2 border-r-2"
+              className=" bg-white px-3.5 py-2.5 text-sm font-medium text-gray-700 min-w-[180px] border-2"
             >
               Vinhos e Espumante
             </button>
