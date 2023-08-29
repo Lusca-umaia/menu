@@ -65,25 +65,25 @@ export default function Home() {
           <section className="flex min-w-full overflow-auto scroll-remove">
             <button
               type="button"
-              className=" bg-white px-3.5 py-3.5 text-sm font-semibold text-black min-w-[180px] border-b-black border-b-2"
+              className=" bg-white px-3.5 py-3.5 text-sm font-semibold text-black min-w-[180px] border-b-black border-y-2 border-x-2"
             >
               Cardápio Almoço
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] "
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] border-y-2 border-r-2"
             >
               Bebidas
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] "
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[auto] border-y-2 border-r-2"
             >
               Drinks
             </button>
             <button
               type="button"
-              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[180px]"
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 min-w-[180px] border-y-2 border-r-2"
             >
               Vinhos e Espumante
             </button>
@@ -161,15 +161,15 @@ export default function Home() {
         <main className="flex flex-col ">
           <div>
             <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
+            <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
                   key={action.title}
                   className={classNames(
-                    actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
-                    actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
-                    actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
-                    actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
+                    actionIdx === 0 ? '' : '',
+                    actionIdx === 1 ? '' : '',
+                    actionIdx === actions.length - 2 ? '' : '',
+                    actionIdx === actions.length - 1 ? '' : '',
                     'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
                   )}
                 >
@@ -187,7 +187,7 @@ export default function Home() {
                       R$ {action.price}
                     </p>
                   </div>
-                  <img src={action.link} alt="" className="w-[90px] h-[90px] rounded-xl max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+                  <img src={action.link} alt="" className="w-[90px] h-[90px] max-[475px]:w-[80px] max-[475px]:h-[80px]" />
                 </div>
               ))}
             </div>
@@ -195,15 +195,15 @@ export default function Home() {
           <Video indexVideo={0} />
           <div>
             <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
+            <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
                   key={action.title}
                   className={classNames(
-                    actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
-                    actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
-                    actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
-                    actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
+                    actionIdx === 0 ? '' : '',
+                    actionIdx === 1 ? '' : '',
+                    actionIdx === actions.length - 2 ? '' : '',
+                    actionIdx === actions.length - 1 ? '' : '',
                     'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
                   )}
                 >
@@ -221,22 +221,22 @@ export default function Home() {
                       R$ {action.price}
                     </p>
                   </div>
-                  <img src={action.link} alt="" className="w-[90px] h-[90px] rounded-xl max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+                  <img src={action.link} alt="" className="w-[90px] h-[90px] max-[475px]:w-[80px] max-[475px]:h-[80px]" />
                 </div>
               ))}
             </div>
           </div>
           <div>
             <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
+            <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
                   key={action.title}
                   className={classNames(
-                    actionIdx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '',
-                    actionIdx === 1 ? 'sm:rounded-tr-lg' : '',
-                    actionIdx === actions.length - 2 ? 'sm:rounded-bl-lg' : '',
-                    actionIdx === actions.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '',
+                    actionIdx === 0 ? '' : '',
+                    actionIdx === 1 ? '' : '',
+                    actionIdx === actions.length - 2 ? '' : '',
+                    actionIdx === actions.length - 1 ? '' : '',
                     'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
                   )}
                 >
@@ -254,7 +254,7 @@ export default function Home() {
                       R$ {action.price}
                     </p>
                   </div>
-                  <img src={action.link} alt="" className="w-[90px] h-[90px] rounded-xl max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+                  <img src={action.link} alt="" className="w-[90px] h-[90px] max-[475px]:w-[80px] max-[475px]:h-[80px]" />
                 </div>
               ))}
             </div>
