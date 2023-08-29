@@ -56,35 +56,34 @@ export default function Home() {
   return (
     <>
       {/* <img src={link} alt="" width={"100%"} className='absolute top-0' /> */}
-      <section className="bg-gray-50 min-h-[100vh] max-w-[1000px] mx-auto my-0 relative w-[100%] rounded-[10px]">
-        <div className="flex gap-4 pl-4 py-2 items-center bg-white">
-          <Image src={logo} alt="Logo do site" className="w-[60px] h-[60px] rounded-xl max-[475px]:w-[55px] max-[475px]:h-[55px]" />
-          <h1 className="font-bold text-xl">Roister - Rua 24 de outubro</h1>
+      <section className="bg-gray-100 min-h-[100vh] max-w-[1000px] mx-auto my-0 relative w-[100%] rounded-[10px]">
+        <div className="flex gap-4 py-2 items-center bg-white justify-between	w-[100%] mx-auto px-4">
+          <h1 className="font-bold text-base">Roister - Rua 24 de outubro</h1>
+          <Image src={logo} alt="Logo do site" className="w-[60px] h-[60px] rounded-[50%] max-[475px]:w-[55px] max-[475px]:h-[55px] border-2 drop-shadow-md	" />
         </div>
-        {/* sticky z-10 */}
-        <header className="flex flex-col bg-white top-[0] pt-2 sticky z-10 ">
-          <section className="flex gap-3 min-w-full overflow-auto px-4 pb-3">
+        <header className="flex flex-col bg-white top-[0] pt-2 sticky z-10 drop-shadow-md rounded-b-lg" id='headerMenu'>
+          <section className="flex min-w-full overflow-auto pb-3 ">
             <button
               type="button"
-              className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-4 ring-inset ring-black hover:bg-gray-50 min-w-[180px]"
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-black hover:bg-gray-50 min-w-[180px] border-b-black border-b-2"
             >
               Cardápio Almoço
             </button>
             <button
               type="button"
-              className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 min-w-[140px]"
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 min-w-[auto] "
             >
               Bebidas
             </button>
             <button
               type="button"
-              className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 min-w-[140px]"
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 min-w-[auto] "
             >
               Drinks
             </button>
             <button
               type="button"
-              className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 min-w-[180px]"
+              className=" bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 min-w-[180px]"
             >
               Vinhos e Espumante
             </button>
@@ -161,8 +160,8 @@ export default function Home() {
         </header>
         <main className="flex flex-col ">
           <div>
-            <h2 className="pl-4 my-3 font-semibold text-sm">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg shadow sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
+            <h2 className="pl-4 my-3 font-semibold text-base">Cardápio Almoço</h2>
+            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
                   key={action.title}
@@ -175,7 +174,7 @@ export default function Home() {
                   )}
                 >
                   <div>
-                    <h3 className="text-base font-semibold leading-6 text-gray-900">
+                    <h3 className="text-base font-medium leading-6 text-gray-900">
                       <a href={action.href} className="focus:outline-none">
                         <span className="absolute inset-0" aria-hidden="true" />
                         {action.title}
@@ -184,7 +183,7 @@ export default function Home() {
                     <p className="mt-2 text-sm text-black font-light">
                       {action.description}
                     </p>
-                    <p className="mt-2 text-sm text-black font-semibold	">
+                    <p className="mt-2 text-sm text-black font-medium	">
                       R$ {action.price}
                     </p>
                   </div>
@@ -195,8 +194,8 @@ export default function Home() {
           </div>
           <Video indexVideo={0} />
           <div>
-            <h2 className="pl-4 my-3 font-semibold text-sm">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg shadow sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
+            <h2 className="pl-4 my-3 font-semibold text-base">Cardápio Almoço</h2>
+            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
                   key={action.title}
@@ -209,9 +208,8 @@ export default function Home() {
                   )}
                 >
                   <div>
-                    <h3 className="text-base font-semibold leading-6 text-gray-900">
+                    <h3 className="text-base font-medium leading-6 text-gray-900">
                       <a href={action.href} className="focus:outline-none">
-                        {/* Extend touch target to entire panel */}
                         <span className="absolute inset-0" aria-hidden="true" />
                         {action.title}
                       </a>
@@ -219,18 +217,18 @@ export default function Home() {
                     <p className="mt-2 text-sm text-black font-light">
                       {action.description}
                     </p>
-                    <p className="mt-2 text-sm text-black font-semibold	">
+                    <p className="mt-2 text-sm text-black font-medium	">
                       R$ {action.price}
                     </p>
                   </div>
-                  <Image src={hb} alt="Imagem do produto" className="w-[90px] h-[90px] rounded-xl max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+                  <img src={action.link} alt="" className="w-[90px] h-[90px] rounded-xl max-[475px]:w-[80px] max-[475px]:h-[80px]" />
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <h2 className="pl-4 my-3 font-semibold text-sm">Cardápio Almoço</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg shadow sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
+            <h2 className="pl-4 my-3 font-semibold text-base">Cardápio Almoço</h2>
+            <div className="divide-y divide-gray-200 overflow-hidden rounded-lg drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 max-[775px]:grid-cols-1">
               {actions.map((action, actionIdx) => (
                 <div
                   key={action.title}
@@ -243,9 +241,8 @@ export default function Home() {
                   )}
                 >
                   <div>
-                    <h3 className="text-base font-semibold leading-6 text-gray-900">
+                    <h3 className="text-base font-medium leading-6 text-gray-900">
                       <a href={action.href} className="focus:outline-none">
-                        {/* Extend touch target to entire panel */}
                         <span className="absolute inset-0" aria-hidden="true" />
                         {action.title}
                       </a>
@@ -253,11 +250,11 @@ export default function Home() {
                     <p className="mt-2 text-sm text-black font-light">
                       {action.description}
                     </p>
-                    <p className="mt-2 text-sm text-black font-semibold	">
+                    <p className="mt-2 text-sm text-black font-medium	">
                       R$ {action.price}
                     </p>
                   </div>
-                  <Image src={hb} alt="Imagem do produto" className="w-[90px] h-[90px] rounded-xl max-[475px]:w-[80px] max-[475px]:h-[80px]" />
+                  <img src={action.link} alt="" className="w-[90px] h-[90px] rounded-xl max-[475px]:w-[80px] max-[475px]:h-[80px]" />
                 </div>
               ))}
             </div>
