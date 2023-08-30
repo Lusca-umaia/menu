@@ -35,6 +35,13 @@ export default function Home() {
       link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
       href: '#',
       price: '100,00'
+    },
+    {
+      title: 'Ragu + Chá Gelado',
+      description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+      link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+      href: '#',
+      price: '100,00'
     }
   ]
 
@@ -81,13 +88,38 @@ export default function Home() {
         </section>
       </nav >
       <main className="flex flex-col ">
+        <div>
+          <h2 className="pl-4 my-5 font-semibold text-base">Produtos mais vendidos</h2>
+          <div className="bg-gray-50 flex overflow-auto gap-4 scrollStyle scrollRemove py-2 px-2">
+            {products.map((product, index) => (
+              <div
+                key={product.title + index}
+                className={"flex flex-col justify-between items-start gap-4 group relative bg-white min-w-[180px] max-w-[180px] shadow-xl	"}
+                onClick={() => { window.location.href = "/product" }}
+              >
+                <div className='w-full flex flex-col gap-2'>
+                  <img src={product.link} alt={"Imagem do produto" + product.title} className="w-full h-40 object-cover" />
+                  <h3 className="text-sm font-medium leading-6 text-gray-900 px-2">
+                    <Link href={product.href} className="focus:outline-none">
+                      <span className="absolute inset-0" aria-hidden="true" />
+                      {product.title}
+                    </Link>
+                  </h3>
+                </div>
+                <p className="mt-2 text-xs text-black font-medium	px-2 py-2">
+                  R$ {product.price}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div >
         <Cards title='Cardápio Almoço' products={products}></Cards>
         <Video indexVideo={0} description={true} />
         <Cards title='Bebidas' products={products}></Cards>
         <Cards title='Drinks' products={products}></Cards>
       </main >
-      <footer className={`fixed bottom-0 font-medium z-40 bg-white w-full p-5 max-w-lg shadowAlter text-center duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}>
-        <p className='flex justify-center gap-1'>Feito com <HeartIcon width={20} color='red' /> por MENUK</p>
+      <footer className={`fixed bottom-0 font-medium z-40 bg-white w-full p-3.5 max-w-lg shadowAlter text-center duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}>
+        <p className='flex justify-center gap-1 text-sm'>Feito com <HeartIcon width={20} color='red' /> por MENUK</p>
       </footer>
     </section >
   )
