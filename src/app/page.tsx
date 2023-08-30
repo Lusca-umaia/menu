@@ -9,7 +9,7 @@ import Video from './components/Video/Video'
 
 export default function Home() {
   const link = "https://classic.exame.com/wp-content/uploads/2016/12/madero-restaurante.jpg?quality=70&strip=info&w=680"
-  const actions = [
+  const products = [
     {
       title: 'Bulgogi Vegano + Chá Gelado',
       href: '#',
@@ -33,14 +33,6 @@ export default function Home() {
     }
   ]
 
-  const steps = [
-    { id: '01', name: 'Entradas', description: 'Vitae sed mi luctus laoreet.', href: '#', status: 'current' },
-    { id: '02', name: 'Saladas', description: 'Cursus semper viverra.', href: '#', status: 'complete' },
-    { id: '03', name: 'Principal', description: 'Cursus semper viverra.', href: '#', status: 'complete' },
-    { id: '04', name: 'Drinks', description: 'Cursus semper viverra.', href: '#', status: 'complete' },
-    { id: '05', name: 'Doces', description: 'Cursus semper viverra.', href: '#', status: 'complete' },
-  ]
-
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
   }
@@ -53,13 +45,12 @@ export default function Home() {
     <section className="bg-gray-100 min-h-screen max-w-5xl mx-auto my-0 relative w-full">
       <div className="flex gap-4 pt-3 pb-1.5 items-center bg-white w-full mx-auto px-4">
         <Image src={logo} alt="Logo do site" className="w-20 h-20 " />
-        {/* rounded-full border-2 shadow */}
         <div className='flex flex-col'>
           <h1 className="font-bold text-sm">Roister - Rua 24 de outubro</h1>
           <h2 className="font-medium text-xs ext-gray-300">Cantina & Italiano</h2>
         </div>
       </div>
-      <header className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-100" id='header'>
+      <nav className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-700 opacity-100" id='header'>
         <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle">
           {cardapioOptions.map((item, index) => (
             <button
@@ -73,33 +64,33 @@ export default function Home() {
             </button>
           ))}
         </section>
-      </header >
+      </nav >
       <main className="flex flex-col ">
         <div>
           <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
           <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
-            {actions.map((action, actionIdx) => (
+            {products.map((product, index) => (
               <div
-                key={action.title}
+                key={product.title}
                 className={classNames(
                   'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
                 )}
               >
                 <div>
                   <h3 className="text-base font-medium leading-6 text-gray-900">
-                    <a href={action.href} className="focus:outline-none">
+                    <a href={product.href} className="focus:outline-none">
                       <span className="absolute inset-0" aria-hidden="true" />
-                      {action.title}
+                      {product.title}
                     </a>
                   </h3>
                   <p className="mt-2 text-sm text-black font-light">
-                    {action.description}
+                    {product.description}
                   </p>
                   <p className="mt-2 text-sm text-black font-medium	">
-                    R$ {action.price}
+                    R$ {product.price}
                   </p>
                 </div>
-                <img src={action.link} alt="" className="w-20 h-20" />
+                <img src={product.link} alt={"Imagem do produto" + product.title} className="w-20 h-20" />
               </div>
             ))}
           </div>
@@ -108,28 +99,28 @@ export default function Home() {
         <div>
           <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
           <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
-            {actions.map((action, actionIdx) => (
+            {products.map((product, index) => (
               <div
-                key={action.title}
+                key={product.title}
                 className={classNames(
                   'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
                 )}
               >
                 <div>
                   <h3 className="text-base font-medium leading-6 text-gray-900">
-                    <a href={action.href} className="focus:outline-none">
+                    <a href={product.href} className="focus:outline-none">
                       <span className="absolute inset-0" aria-hidden="true" />
-                      {action.title}
+                      {product.title}
                     </a>
                   </h3>
                   <p className="mt-2 text-sm text-black font-light">
-                    {action.description}
+                    {product.description}
                   </p>
                   <p className="mt-2 text-sm text-black font-medium	">
-                    R$ {action.price}
+                    R$ {product.price}
                   </p>
                 </div>
-                <img src={action.link} alt="" className="w-20 h-20" />
+                <img src={product.link} alt={"Imagem do produto" + product.title} className="w-20 h-20" />
               </div>
             ))}
           </div>
@@ -137,28 +128,28 @@ export default function Home() {
         <div>
           <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
           <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
-            {actions.map((action, actionIdx) => (
+            {products.map((product, index) => (
               <div
-                key={action.title}
+                key={product.title}
                 className={classNames(
                   'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
                 )}
               >
                 <div>
                   <h3 className="text-base font-medium leading-6 text-gray-900">
-                    <a href={action.href} className="focus:outline-none">
+                    <a href={product.href} className="focus:outline-none">
                       <span className="absolute inset-0" aria-hidden="true" />
-                      {action.title}
+                      {product.title}
                     </a>
                   </h3>
                   <p className="mt-2 text-sm text-black font-light">
-                    {action.description}
+                    {product.description}
                   </p>
                   <p className="mt-2 text-sm text-black font-medium	">
-                    R$ {action.price}
+                    R$ {product.price}
                   </p>
                 </div>
-                <img src={action.link} alt="" className="w-20 h-20" />
+                <img src={product.link} alt={"Imagem do produto" + product.title} className="w-20 h-20" />
               </div>
             ))}
           </div>

@@ -62,7 +62,7 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     pointer-events: auto;
-    z-index: 5;
+    z-index: 2;
 }
 
 .TcqeEa {
