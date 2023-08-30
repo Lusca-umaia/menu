@@ -37,7 +37,7 @@ const videos_url = [
 ]
 
 
-export default function Home({ indexVideo }: { indexVideo: number }) {
+export default function Home({ indexVideo, description }: { indexVideo: number, description: boolean }) {
     const videoRefs = useRef<HTMLVideoElement[]>([]);
     const [isMuted, setIsMuted] = useState(true);
     const { width: widthX, height: heightX } = useWindowSize();
@@ -268,23 +268,25 @@ export default function Home({ indexVideo }: { indexVideo: number }) {
                         </div>
                     }
                     <div className="cVHMpv">
-                        <div className="titledXTrWE">
-                            <div className="dXTrWE">
-                                <div style={{
-                                    paddingBottom: "10px",
-                                    fontSize: "16.5px",
-                                    fontWeight: "bold"
-                                }}>
-                                    {video.title}
-                                </div>
-                                <div style={{
-                                    paddingBottom: "10px",
-                                    fontSize: "13.5px"
-                                }}>
-                                    {video.subtitle}
+                        {description ? (
+                            <div className="titledXTrWE">
+                                <div className="dXTrWE">
+                                    <div style={{
+                                        paddingBottom: "10px",
+                                        fontSize: "16.5px",
+                                        fontWeight: "bold"
+                                    }}>
+                                        {video.title}
+                                    </div>
+                                    <div style={{
+                                        paddingBottom: "10px",
+                                        fontSize: "13.5px"
+                                    }}>
+                                        {video.subtitle}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        ) : null}
                         <div className="ksuiaN">
                             <div className="krNkcP">
                                 <button className="dDYExP" onClick={() => handleLikeVideo(indexVideo)}>

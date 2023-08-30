@@ -1,14 +1,19 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
+import { HeartIcon } from '@heroicons/react/20/solid'
+
+import Link from 'next/link'
 import Image from "next/image"
+
+import Cards from './components/Cards/index'
+import Video from './components/Video/Video'
 
 import logo from '../../public/image.jpg'
 
-import Video from './components/Video/Video'
-
 export default function Home() {
-  const link = "https://classic.exame.com/wp-content/uploads/2016/12/madero-restaurante.jpg?quality=70&strip=info&w=680"
+  const [scrolled, setScrolled] = useState(false);
+
   const products = [
     {
       title: 'Bulgogi Vegano + Chá Gelado',
@@ -33,16 +38,26 @@ export default function Home() {
     }
   ]
 
-  function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-  }
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
 
-  const [selectButton, setSelectButton] = useState(1)
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [])
+
+  const [selectButton, setSelectButton] = useState(0)
 
   const cardapioOptions = ['Cardápio Almoço', 'Bebidas', 'Drinks', 'Vinhos e Espumantes']
 
   return (
-    <section className="bg-gray-100 min-h-screen max-w-5xl mx-auto my-0 relative w-full">
+    <section className="bg-gray-100 min-h-screen max-w-lg mx-auto my-0 relative w-full">
       <div className="flex gap-4 pt-3 pb-1.5 items-center bg-white w-full mx-auto px-4">
         <Image src={logo} alt="Logo do site" className="w-20 h-20 " />
         <div className='flex flex-col'>
@@ -56,7 +71,7 @@ export default function Home() {
             <button
               key={item + index}
               type="button"
-              className={`${index == 0 ?
+              className={`${index == selectButton ?
                 "bg-white px-8 py-2 text-sm font-bold text-black w-auto border-black border-2 whitespace-nowrap" :
                 "bg-white px-8 py-2 text-sm font-medium text-gray-700 border-2 w-auto whitespace-nowrap"} `}
             >
@@ -66,95 +81,14 @@ export default function Home() {
         </section>
       </nav >
       <main className="flex flex-col ">
-        <div>
-          <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-          <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
-            {products.map((product, index) => (
-              <div
-                key={product.title}
-                className={classNames(
-                  'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
-                )}
-              >
-                <div>
-                  <h3 className="text-base font-medium leading-6 text-gray-900">
-                    <a href={product.href} className="focus:outline-none">
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      {product.title}
-                    </a>
-                  </h3>
-                  <p className="mt-2 text-sm text-black font-light">
-                    {product.description}
-                  </p>
-                  <p className="mt-2 text-sm text-black font-medium	">
-                    R$ {product.price}
-                  </p>
-                </div>
-                <img src={product.link} alt={"Imagem do produto" + product.title} className="w-20 h-20" />
-              </div>
-            ))}
-          </div>
-        </div>
-        <Video indexVideo={0} />
-        <div>
-          <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-          <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
-            {products.map((product, index) => (
-              <div
-                key={product.title}
-                className={classNames(
-                  'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
-                )}
-              >
-                <div>
-                  <h3 className="text-base font-medium leading-6 text-gray-900">
-                    <a href={product.href} className="focus:outline-none">
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      {product.title}
-                    </a>
-                  </h3>
-                  <p className="mt-2 text-sm text-black font-light">
-                    {product.description}
-                  </p>
-                  <p className="mt-2 text-sm text-black font-medium	">
-                    R$ {product.price}
-                  </p>
-                </div>
-                <img src={product.link} alt={"Imagem do produto" + product.title} className="w-20 h-20" />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-          <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
-            {products.map((product, index) => (
-              <div
-                key={product.title}
-                className={classNames(
-                  'flex justify-between items-center gap-8 group relative bg-white p-4 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500'
-                )}
-              >
-                <div>
-                  <h3 className="text-base font-medium leading-6 text-gray-900">
-                    <a href={product.href} className="focus:outline-none">
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      {product.title}
-                    </a>
-                  </h3>
-                  <p className="mt-2 text-sm text-black font-light">
-                    {product.description}
-                  </p>
-                  <p className="mt-2 text-sm text-black font-medium	">
-                    R$ {product.price}
-                  </p>
-                </div>
-                <img src={product.link} alt={"Imagem do produto" + product.title} className="w-20 h-20" />
-              </div>
-            ))}
-          </div>
-        </div>
+        <Cards title='Cardápio Almoço' products={products}></Cards>
+        <Video indexVideo={0} description={true} />
+        <Cards title='Bebidas' products={products}></Cards>
+        <Cards title='Drinks' products={products}></Cards>
       </main >
+      <footer className={`fixed bottom-0 font-medium z-40 bg-white w-full p-5 max-w-lg shadowAlter text-center duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}>
+        <p className='flex justify-center gap-1'>Feito com <HeartIcon width={20} color='red' /> por MENUK</p>
+      </footer>
     </section >
   )
 }

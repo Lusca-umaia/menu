@@ -62,7 +62,7 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     pointer-events: auto;
-    z-index: 2;
+    z-index: 5;
 }
 
 .TcqeEa {
@@ -193,7 +193,7 @@
     -webkit-box-align: center;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding: 20px 18px 20px 18px;
     position: absolute;
     top: 0px;
     left: 0px;
