@@ -52,8 +52,12 @@ export default function Home() {
   return (
     <section className="bg-gray-100 min-h-screen max-w-5xl mx-auto my-0 relative w-full">
       <div className="flex gap-4 pt-3 pb-1.5 items-center bg-white w-full mx-auto px-4">
-        <Image src={logo} alt="Logo do site" className="w-16 h-16 rounded-full border-2 shadow" />
-        <h1 className="font-bold text-base">Roister - Rua 24 de outubro</h1>
+        <Image src={logo} alt="Logo do site" className="w-20 h-20 " />
+        {/* rounded-full border-2 shadow */}
+        <div className='flex flex-col'>
+          <h1 className="font-bold text-sm">Roister - Rua 24 de outubro</h1>
+          <h2 className="font-medium text-xs ext-gray-300">Cantina & Italiano</h2>
+        </div>
       </div>
       <header className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-100" id='header'>
         <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle">
@@ -73,7 +77,7 @@ export default function Home() {
       <main className="flex flex-col ">
         <div>
           <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-          <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0">
+          <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
             {actions.map((action, actionIdx) => (
               <div
                 key={action.title}
@@ -103,7 +107,7 @@ export default function Home() {
         <Video indexVideo={0} />
         <div>
           <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-          <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0">
+          <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
             {actions.map((action, actionIdx) => (
               <div
                 key={action.title}
@@ -132,7 +136,7 @@ export default function Home() {
         </div>
         <div>
           <h2 className="pl-4 my-5 font-semibold text-base">Cardápio Almoço</h2>
-          <div className="divide-y divide-gray-200 overflow-hidden drop-shadow-xl sm:grid grid-cols-2 sm:gap-px sm:divide-y-0">
+          <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
             {actions.map((action, actionIdx) => (
               <div
                 key={action.title}
