@@ -54,7 +54,7 @@ export default function Product() {
                         <h2 className="pl-4 my-5 font-semibold text-base">Bebidas</h2>
                         <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-2 sm:gap-px sm:divide-y-0 shadowAlter">
                             {actions.map((action, actionIdx) => (
-                                <div className='flex justify-between items-center p-4'>
+                                <div className='flex justify-between items-center p-4' key={action.link + actionIdx}>
                                     <div
                                         key={action.title}
                                         className={classNames(
