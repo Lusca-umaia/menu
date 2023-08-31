@@ -6,6 +6,7 @@ import { HeartIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import Image from "next/image"
 
+import Nav from './components/Nav'
 import Cards from './components/Cards/index'
 import Video from './components/Video/Video'
 
@@ -65,30 +66,16 @@ export default function Home() {
 
   return (
     <section className="bg-gray-100 min-h-screen max-w-lg mx-auto my-0 relative w-full">
-      <div className="flex gap-4 pt-3 pb-1.5 items-center bg-white w-full mx-auto px-4">
+      <header className="flex gap-4 pt-3 pb-1.5 items-center bg-white w-full mx-auto px-4">
         <Image src={logo} alt="Logo do site" className="w-20 h-20 " />
         <div className='flex flex-col'>
           <h1 className="font-bold text-sm">Roister - Rua 24 de outubro</h1>
           <h2 className="font-medium text-xs ext-gray-300">Cantina & Italiano</h2>
         </div>
-      </div>
-      <nav className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-700 opacity-100" id='header'>
-        <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle">
-          {cardapioOptions.map((item, index) => (
-            <button
-              key={item + index}
-              type="button"
-              className={`${index == selectButton ?
-                "bg-white px-8 py-2 text-sm font-bold text-black w-auto border-black border-2 whitespace-nowrap" :
-                "bg-white px-8 py-2 text-sm font-medium text-gray-700 border-2 w-auto whitespace-nowrap"} `}
-            >
-              {item}
-            </button>
-          ))}
-        </section>
-      </nav >
+      </header>
+      <Nav selectButton={selectButton} cardapioOptions={cardapioOptions} />
       <main className="flex flex-col ">
-        <div>
+        <div className='shadow-lg'>
           <h2 className="pl-4 my-5 font-semibold text-base">Produtos mais vendidos</h2>
           <div className="bg-gray-50 flex overflow-auto gap-4 scrollStyle pb-4 px-2">
             {products.map((product, index) => (

@@ -6,10 +6,6 @@
     height: 3px;
 }
 
-.scrollStyle::-webkit-scrollbar-thumb {
-    background: #eaeaea;
-}
-
 .shadowAlter {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
@@ -18,10 +14,19 @@
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-.scrollStyle::-webkit-scrollbar-track {
+.scrollStyle::-webkit-scrollbar-thumb:hover {
     background: transparent;
 }
 
-.scrollStyle::-webkit-scrollbar-thumb:hover {
+.scrollStyle {
+    scrollbar-width: thin;
+    scrollbar-color: #eaeaea transparent;
+}
+
+.scrollStyle::-webkit-scrollbar-thumb {
+    background: #eaeaea;
+}
+
+.scrollStyle::-webkit-scrollbar-track {
     background: transparent;
 }

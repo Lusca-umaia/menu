@@ -8,7 +8,7 @@ export default function Product() {
     return (
         <section className="bg-white min-h-screen relative w-full relative max-w-lg mx-auto my-0 ">
             <div className='bg-gray-100 flex items-center py-2 divide-y w-full'>
-                <Link href={"/"}>
+                <Link href={"/"} className='w-full'>
                     <button
                         type="button"
                         className="inline-flex items-center gap-x-1.5 bg-gray-100 px-2.5 py-1.5 text-sm font-semibold text-black w-full "
