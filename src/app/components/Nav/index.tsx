@@ -1,4 +1,4 @@
-export default function ({ cardapioOptions, selectButton }: { cardapioOptions: string[], selectButton: number }) {
+export default function Nav({ cardapioOptions, selectButton }: { cardapioOptions: string[], selectButton: number }) {
     return (
         <nav className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-700 opacity-100" id='header'>
             <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle">
