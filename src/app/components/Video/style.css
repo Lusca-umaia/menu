@@ -53,6 +53,7 @@
 .TqpeWW {
     display: flex;
     height: 100vh;
+    width: 100%;
     flex-direction: column;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -193,7 +194,7 @@
     -webkit-box-align: center;
     align-items: center;
     width: 100%;
-    padding: 20px 18px 20px 18px;
+    padding: 20px;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -207,7 +208,6 @@
 .gmCcTH {
     display: flex;
     flex-direction: row;
-    gap: 10px;
     -webkit-box-align: center;
     align-items: center;
 }

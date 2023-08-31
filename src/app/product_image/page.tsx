@@ -7,8 +7,8 @@ import { ChevronLeftIcon } from '@heroicons/react/20/solid'
 export default function Product() {
     return (
         <section className="bg-white min-h-screen relative w-full relative max-w-lg mx-auto my-0">
-            <div className='border-b-2 border-gray-200 bg-gray-100 flex items-center py-2 divide-y'>
-                <Link href={"/"}>
+            <div className='bg-gray-100 flex items-center py-2 divide-y'>
+                <Link href={"/"} className='w-full'>
                     <button
                         type="button"
                         className="inline-flex items-center gap-x-1.5 bg-gray-100 px-2.5 py-1.5 text-sm font-semibold text-black w-full "
@@ -18,7 +18,7 @@ export default function Product() {
                     </button >
                 </Link>
             </div>
-            <div className="sticky top-0 z-10 w-full flex flex-col shadowAlter">
+            <div className="sticky top-0 z-10 w-full flex flex-col shadowAll">
                 <img src="https://www.goomer.app/webmenu/muza-restaurante/product/5055134/picture/large/230826220826" alt="Product" className="w-full h-60 object-cover" />
             </div>
             <div className="bg-white flex flex-col gap-2  z-20 sticky">

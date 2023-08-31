@@ -90,11 +90,11 @@ export default function Home() {
       <main className="flex flex-col ">
         <div>
           <h2 className="pl-4 my-5 font-semibold text-base">Produtos mais vendidos</h2>
-          <div className="bg-gray-50 flex overflow-auto gap-4 scrollStyle scrollRemove py-2 px-2">
+          <div className="bg-gray-50 flex overflow-auto gap-4 scrollStyle pb-4 px-2">
             {products.map((product, index) => (
               <div
                 key={product.title + index}
-                className={"flex flex-col justify-between items-start gap-4 group relative bg-white min-w-[180px] max-w-[180px] shadow-xl	"}
+                className={"flex flex-col justify-between items-start gap-4 group relative bg-white min-w-[180px] max-w-[180px] shadow-md"}
                 onClick={() => { window.location.href = "/product" }}
               >
                 <div className='w-full flex flex-col gap-2'>
