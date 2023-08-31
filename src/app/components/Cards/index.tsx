@@ -16,9 +16,8 @@ export default function Cards({ products, title }: { products: product[], title:
             <h2 className="pl-4 my-5 font-semibold text-base">{title}</h2>
             <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-1 sm:gap-px sm:divide-y-0 shadowAlter">
                 {products.map((product, index) => (
-                    <Link href={"/product"}>
+                    <Link href={"/product"} key={product.title + index}>
                         <div
-                            key={product.title + index}
                             className={classNames(
                                 'flex justify-between items-center gap-8 group relative bg-white p-4'
                             )}
