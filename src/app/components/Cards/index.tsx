@@ -1,22 +1,18 @@
 'use client'
 import Link from "next/link"
 
-interface product {
-    title: string, href: string, description: string, price: string, link: string
-}
-
-export default function Cards({ products, title }: { products: product[], title: string }) {
+export default function Cards({ products, title, buttonId, idElement }: { products: product[], title: string, buttonId: string, idElement: string }) {
 
     function classNames(...classes: string[]) {
         return classes.filter(Boolean).join(' ')
     }
 
     return (
-        <div>
-            <h2 className="pl-4 my-5 font-semibold text-base">{title}</h2>
-            <div className="divide-y divide-gray-200 overflow-hidden sm:grid grid-cols-1 sm:gap-px sm:divide-y-0 shadowAlter">
+        <div id={idElement} className="scroll-mt-14">
+            <h2 className="pl-4 my-5 font-semibold text-base" data-anime={buttonId}>{title}</h2>
+            <div className="grid divide-y divide-gray-200 overflow-hidden grid-cols-1 gap-px shadowAlter">
                 {products.map((product, index) => (
-                    <Link href={"/product"} key={product.title + index}>
+                    <a href={"/product"} key={product.title + index}>
                         <div
                             className={classNames(
                                 'flex justify-between items-center gap-8 group relative bg-white p-4'
@@ -36,7 +32,7 @@ export default function Cards({ products, title }: { products: product[], title:
                             </div>
                             <img src={product.link} alt={"Imagem do produto" + product.title} className="w-20 h-20" />
                         </div>
-                    </Link>
+                    </a>
                 ))}
             </div>
         </div >

@@ -60,9 +60,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [])
 
-  const [selectButton, setSelectButton] = useState(0)
-
-  const cardapioOptions = ['Cardápio Almoço', 'Bebidas', 'Drinks', 'Vinhos e Espumantes']
 
   return (
     <section className="bg-gray-100 min-h-screen max-w-lg mx-auto my-0 relative w-full">
@@ -73,7 +70,7 @@ export default function Home() {
           <h2 className="font-medium text-xs ext-gray-300">Cantina & Italiano</h2>
         </div>
       </header>
-      <Nav selectButton={selectButton} cardapioOptions={cardapioOptions} />
+      <Nav />
       <main className="flex flex-col ">
         <div className='shadow-lg'>
           <h2 className="pl-4 my-5 font-semibold text-base">Produtos mais vendidos</h2>
@@ -99,10 +96,11 @@ export default function Home() {
             ))}
           </div>
         </div >
-        <Cards title='Cardápio Almoço' products={products}></Cards>
+        <Cards title='Cardápio Almoço' products={products} buttonId='button1' idElement='item1' />
         <Video indexVideo={0} description={true} />
-        <Cards title='Bebidas' products={products}></Cards>
-        <Cards title='Drinks' products={products}></Cards>
+        <Cards title='Bebidas' products={products} buttonId='button2' idElement='item2' />
+        <Cards title='Drinks' products={products} buttonId='button3' idElement='item3' />
+        <Cards title='Vinhos e Espumantes' products={products} buttonId='button4' idElement='item4' />
       </main >
       <footer className={`fixed bottom-0 font-medium z-40 bg-white w-full p-3.5 max-w-lg shadowAlter text-center duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}>
         <p className='flex justify-center gap-1 text-sm'>Feito com <HeartIcon width={20} color='red' /> por MENUK</p>
