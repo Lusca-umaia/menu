@@ -1,64 +1,300 @@
 'use client'
-import { useState, useEffect } from 'react'
-
-import { HeartIcon } from '@heroicons/react/20/solid'
+import { useState, useEffect, useRef, Fragment } from 'react'
 
 import Link from 'next/link'
+import { gaPlayVideo, gaViewVideo100, gaViewVideo25, gaViewVideo50, gaViewVideo75 } from "./components/Video/gtagHelper";
+
 import Image from "next/image"
 
 import Nav from './components/Nav'
-import Cards from './components/Cards/index'
+import Card from './components/Cards/Default/index'
+import CardFavorites from './components/Cards/Favorites/index'
+import Footer from './components/Footer'
 import Video from './components/Video/Video'
 
 import logo from '../../public/image.jpg'
 
-export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
+const mediaItems = [
+  {
+    type: 'card',
+    title: 'Cardápio Almoço',
+    products: [
+      {
+        title: 'Bulgogi Vegano + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/523786c0-aebf-11ec-b99f-5504017ee26a.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "cogumelos, mini pimentões e cebola roxa tostados e pimenta gochujang... ",
+        price: '49,00'
+      },
+      {
+        title: 'Frango Empanado com Molho de Queijos + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/5e553b10-18b3-11ed-8c61-b7f633bde1ba.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "Frango empanado (230g) • molho de queijos • house fries",
+        price: '49,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      }
+    ]
+  },
+  {
+    type: 'video',
+    order: 0,
+    url: "https://storage.googleapis.com/menuk/lb-involtini_1.mp4",
+    title: "Involtini al Quattro Formaggi - R$ 42",
+    subtitle: "A combinação dos quatro queijos que todo mundo ama! Mozzarella, catupiry, provolone e gorgonzola, enrolados pela nossa massa de pizza de longa fermentação, importasse diretamente da Itália",
+    preload: "auto"
+  },
+  {
+    type: 'card',
+    title: 'Bebidas',
+    products: [
+      {
+        title: 'Bulgogi Vegano + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/523786c0-aebf-11ec-b99f-5504017ee26a.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "cogumelos, mini pimentões e cebola roxa tostados e pimenta gochujang... ",
+        price: '49,00'
+      },
+      {
+        title: 'Frango Empanado com Molho de Queijos + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/5e553b10-18b3-11ed-8c61-b7f633bde1ba.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "Frango empanado (230g) • molho de queijos • house fries",
+        price: '49,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      }
+    ]
+  },
+  {
+    type: 'card',
+    title: 'Drinks',
+    products: [
+      {
+        title: 'Bulgogi Vegano + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/523786c0-aebf-11ec-b99f-5504017ee26a.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "cogumelos, mini pimentões e cebola roxa tostados e pimenta gochujang... ",
+        price: '49,00'
+      },
+      {
+        title: 'Frango Empanado com Molho de Queijos + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/5e553b10-18b3-11ed-8c61-b7f633bde1ba.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "Frango empanado (230g) • molho de queijos • house fries",
+        price: '49,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      }
+    ]
+  },
+  {
+    type: 'card',
+    title: 'Vinhos e espumantes',
+    products: [
+      {
+        title: 'Bulgogi Vegano + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/523786c0-aebf-11ec-b99f-5504017ee26a.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "cogumelos, mini pimentões e cebola roxa tostados e pimenta gochujang... ",
+        price: '49,00'
+      },
+      {
+        title: 'Frango Empanado com Molho de Queijos + Chá Gelado',
+        href: '#',
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/5e553b10-18b3-11ed-8c61-b7f633bde1ba.jpg&w=80&h=80&output=jpg&dpr=2",
+        description: "Frango empanado (230g) • molho de queijos • house fries",
+        price: '49,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      },
+      {
+        title: 'Ragu + Chá Gelado',
+        description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+        link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+        href: '#',
+        price: '100,00'
+      }
+    ]
+  },
+]
 
-  const products = [
-    {
-      title: 'Bulgogi Vegano + Chá Gelado',
-      href: '#',
-      link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/523786c0-aebf-11ec-b99f-5504017ee26a.jpg&w=80&h=80&output=jpg&dpr=2",
-      description: "cogumelos, mini pimentões e cebola roxa tostados e pimenta gochujang... ",
-      price: '49,00'
-    },
-    {
-      title: 'Frango Empanado com Molho de Queijos + Chá Gelado',
-      href: '#',
-      link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/5e553b10-18b3-11ed-8c61-b7f633bde1ba.jpg&w=80&h=80&output=jpg&dpr=2",
-      description: "Frango empanado (230g) • molho de queijos • house fries",
-      price: '49,00'
-    },
-    {
-      title: 'Ragu + Chá Gelado',
-      description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
-      link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
-      href: '#',
-      price: '100,00'
-    },
-    {
-      title: 'Ragu + Chá Gelado',
-      description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
-      link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
-      href: '#',
-      price: '100,00'
-    }
-  ]
+const cards = mediaItems.filter(item => item.type == 'card')
+const videos_url = mediaItems.filter(item => item.type == 'video') as video[]
+
+const favorites = [
+  {
+    title: 'Bulgogi Vegano + Chá Gelado',
+    href: '#',
+    link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/523786c0-aebf-11ec-b99f-5504017ee26a.jpg&w=80&h=80&output=jpg&dpr=2",
+    description: "cogumelos, mini pimentões e cebola roxa tostados e pimenta gochujang... ",
+    price: '49,00'
+  },
+  {
+    title: 'Frango Empanado com Molho de Queijos + Chá Gelado',
+    href: '#',
+    link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/5e553b10-18b3-11ed-8c61-b7f633bde1ba.jpg&w=80&h=80&output=jpg&dpr=2",
+    description: "Frango empanado (230g) • molho de queijos • house fries",
+    price: '49,00'
+  },
+  {
+    title: 'Ragu + Chá Gelado',
+    description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
+    link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
+    href: '#',
+    price: '100,00'
+  }
+]
+
+export default function Home() {
+  const videoRefs = useRef<HTMLVideoElement[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const [videoLiked, setVideoLiked] = useState(Array(videos_url.length).fill(false));
+  const [videoProgress, setVideoProgress] = useState(Array(videos_url.length).fill(0));
+  const hasFired25Event = useRef(videos_url.map(() => false));
+  const hasFired50Event = useRef(videos_url.map(() => false));
+  const hasFired75Event = useRef(videos_url.map(() => false))
+  const hasFired100Event = useRef(videos_url.map(() => false))
 
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+    const handleWaiting = () => setIsLoading(true);
+    const handleCanPlay = () => setIsLoading(false);
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const video = entry.target as HTMLVideoElement;
+          const videoIndex = videoRefs.current.indexOf(video);
+          if (entry.isIntersecting) {
+            if (videoRefs.current[videoIndex]) {
+              videoRefs.current[videoIndex].play();
+              const header = document.getElementById('header')
+              header ? header.style.zIndex = '2' : null
+              if (!isPlaying) {
+                gaPlayVideo(videos_url[videoIndex].url)
+                setIsPlaying(true);
+                setShowButton(false)
+                hasFired25Event.current[videoIndex] = false;
+                hasFired50Event.current[videoIndex] = false;
+                hasFired75Event.current[videoIndex] = false;
+                hasFired100Event.current[videoIndex] = false;
+              }
+            }
+          } else {
+            if (videoRefs.current[videoIndex]) {
+              videoRefs.current[videoIndex].pause();
+
+              const header = document.getElementById('header')
+              header ? header.style.opacity = '0' : null
+              setTimeout(() => {
+                header ? header.style.zIndex = '20' : null
+                header ? header.style.opacity = '1' : null
+              }, 100);
+
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.25
+      }
+    );
+
+    const handleTimeUpdate = (index: number) => () => {
+      const video = videoRefs.current[index];
+      const progress = (video.currentTime / video.duration) * 100;
+      triggerPercentVideoPlayed(progress, index);
+      setVideoProgress((prev) => {
+        const copy = [...prev];
+        copy[index] = progress;
+        return copy;
+      });
+    };
+
+    const triggerPercentVideoPlayed = (percent: number, index: number) => {
+      if (percent >= 25 && !hasFired25Event.current[index]) {
+        gaViewVideo25(videos_url[index].url)
+        hasFired25Event.current[index] = true;
+      }
+      if (percent >= 50 && !hasFired50Event.current[index]) {
+        gaViewVideo50(videos_url[index].url)
+        hasFired50Event.current[index] = true;
+      }
+      if (percent >= 75 && !hasFired75Event.current[index]) {
+        gaViewVideo75(videos_url[index].url)
+        hasFired75Event.current[index] = true;
+      }
+      if (percent >= 99 && !hasFired100Event.current[index]) {
+        gaViewVideo100(videos_url[index].url)
+        hasFired100Event.current[index] = true;
       }
     }
 
-    window.addEventListener("scroll", onScroll);
+    videoRefs.current.forEach((video, videoIndex) => {
+      if (video) {
+        video.addEventListener('waiting', handleWaiting);
+        video.addEventListener('canplay', handleCanPlay);
+        video.addEventListener('timeupdate', handleTimeUpdate(videoIndex));
+        observer.observe(video);
+      }
+    });
 
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [])
+    return () => {
+      videoRefs.current.forEach((video, videoIndex) => {
+        // Verifique se o vídeo existe e ainda está conectado ao DOM antes de tentar desobservá-lo
+        if (video && video.isConnected) {
+          observer.unobserve(video);
+          video.removeEventListener('timeupdate', handleTimeUpdate(videoIndex));
+          video.removeEventListener('waiting', handleWaiting);
+          video.removeEventListener('canplay', handleCanPlay);
+        }
+      });
+    };
+  }, []);
 
 
   return (
@@ -70,41 +306,35 @@ export default function Home() {
           <h2 className="font-medium text-xs ext-gray-300">Cantina & Italiano</h2>
         </div>
       </header>
-      <Nav />
+      <Nav navItems={cards.map((item) => item.title)} />
       <main className="flex flex-col ">
-        <div className='shadow-lg'>
-          <h2 className="pl-4 my-5 font-semibold text-base">Produtos mais vendidos</h2>
-          <div className="bg-gray-50 flex overflow-auto gap-4 scrollStyle pb-4 px-2">
-            {products.map((product, index) => (
-              <div
-                key={product.title + index}
-                className={"flex flex-col justify-between items-start gap-4 group relative bg-white min-w-[180px] max-w-[180px] shadow-md"}
-              >
-                <Link href={"/product"} className='h-full flex flex-col justify-between items-start gap-4 group w-full'>
-                  <div className='w-full flex flex-col gap-2'>
-                    <img src={product.link} alt={"Imagem do produto" + product.title} className="w-full h-40 object-cover" />
-                    <h3 className="text-sm font-medium leading-6 text-gray-900 px-2">
-                      <span className="absolute inset-0" aria-hidden="true" />
-                      {product.title}
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-xs text-black font-medium	px-2 py-2">
-                    R$ {product.price}
-                  </p>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div >
-        <Cards title='Cardápio Almoço' products={products} buttonId='button1' idElement='item1' />
-        <Video indexVideo={0} description={true} />
-        <Cards title='Bebidas' products={products} buttonId='button2' idElement='item2' />
-        <Cards title='Drinks' products={products} buttonId='button3' idElement='item3' />
-        <Cards title='Vinhos e Espumantes' products={products} buttonId='button4' idElement='item4' />
+        <CardFavorites favorites={favorites} />
+        {mediaItems && mediaItems.map((item, index) => (
+          <Fragment key={item.title}>
+            {item.type == "card" ? (
+              <Card title={item.title} products={item.products ? item.products : []} buttonId={`button${item.title}`} idElement={item.title} />
+            ) : (
+              <Video
+                setVideoLiked={setVideoLiked}
+                preload={item.preload ? item.preload : ''}
+                videoRefs={videoRefs}
+                url={item.url ? item.url : ''}
+                title={item.title}
+                videoLiked={videoLiked}
+                isLoading={isLoading}
+                isPlaying={isPlaying}
+                videoProgress={videoProgress}
+                setIsPlaying={setIsPlaying}
+                showButton={showButton}
+                setShowButton={setShowButton}
+                subtitle={item.subtitle ? item.subtitle : ''}
+                indexVideo={item.order ? item.order : 0}
+                description={true} />
+            )}
+          </Fragment>
+        ))}
       </main >
-      <footer className={`fixed bottom-0 font-medium z-40 bg-white w-full p-3.5 max-w-lg shadowAlter text-center duration-500 ${scrolled ? "opacity-0" : "opacity-100"}`}>
-        <p className='flex justify-center gap-1 text-sm'>Feito com <HeartIcon width={20} color='red' /> por MENUK</p>
-      </footer>
+      <Footer />
     </section >
   )
 }
