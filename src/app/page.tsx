@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef, Fragment, useMemo } from 'react'
+import { useState, useEffect, useRef, Fragment } from 'react'
 
 import Link from 'next/link'
 import { gaPlayVideo, gaViewVideo100, gaViewVideo25, gaViewVideo50, gaViewVideo75 } from "./components/Video/gtagHelper";
@@ -164,6 +164,8 @@ const mediaItems = [
 const cards = mediaItems.filter(item => item.type == 'card')
 const videos_url = mediaItems.filter(item => item.type == 'video') as video[]
 
+const navItems = cards.map((item) => item.title)
+
 const favorites = [
   {
     title: 'Bulgogi Vegano + Chá Gelado',
@@ -188,9 +190,10 @@ const favorites = [
   }
 ]
 
+
 export default function Home() {
   const videoRefs = useRef<HTMLVideoElement[]>([]);
-  const header = useRef<HTMLElement>(null)
+  const header = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -293,10 +296,6 @@ export default function Home() {
       });
     };
   }, []);
-
-  const navItems = useMemo(() => {
-    return cards.map((item) => item.title)
-  }, [cards])
 
   return (
     <section className="bg-gray-100 min-h-screen max-w-lg mx-auto my-0 relative w-full">

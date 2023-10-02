@@ -1,11 +1,10 @@
 'use client'
-import React, { useEffect, useRef, forwardRef, useState, useCallback } from 'react';
-
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 
-const Nav = forwardRef(({ navItems }: { navItems: string[] }, ref) => {
+const Nav = React.forwardRef(({ navItems }: { navItems: string[] }, ref: React.Ref<HTMLDivElement>) => {
     const [buttonSelected, setButtonSelected] = useState(0)
-    
+
     function scrollToSection(elementId: string, index: number) {
         const element = document.getElementById(elementId);
         let nav = document.getElementById('nav')
@@ -59,7 +58,6 @@ const Nav = forwardRef(({ navItems }: { navItems: string[] }, ref) => {
     }, [])
 
     return (
-        //@ts-ignore
         <nav className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-700 opacity-100" id='header' ref={ref}>
             <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle" id='nav'>
                 {navItems.map((item, index) => (
@@ -79,5 +77,7 @@ const Nav = forwardRef(({ navItems }: { navItems: string[] }, ref) => {
         </nav >
     )
 })
+
+Nav.displayName = 'Nav';
 
 export default Nav
