@@ -6,7 +6,7 @@ import { ChevronLeftIcon } from '@heroicons/react/20/solid'
 
 export default function Product() {
     return (
-        <section className="bg-white min-h-screen relative w-full relative max-w-lg mx-auto my-0">
+        <section className="bg-white min-h-screen w-full relative max-w-lg mx-auto my-0">
             <div className='bg-gray-100 flex items-center py-2 divide-y w-full'>
                 <Link href={"/"} className='w-full'>
                     <button

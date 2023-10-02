@@ -1,18 +1,18 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, forwardRef, useState, useCallback } from 'react';
 
 import Link from 'next/link';
 
-export default function Nav({ navItems }: { navItems: string[] | [] }) {
-    const [selectButton, setSelectButton] = useState(0)
-
+const Nav = forwardRef(({ navItems }: { navItems: string[] }, ref) => {
+    const [buttonSelected, setButtonSelected] = useState(0)
+    
     function scrollToSection(elementId: string, index: number) {
         const element = document.getElementById(elementId);
         let nav = document.getElementById('nav')
 
         if (element) {
             nav ? nav.scrollLeft = element.offsetLeft - 2 : null
-            setSelectButton(index)
+            setButtonSelected(index)
         }
     }
 
@@ -53,14 +53,14 @@ export default function Nav({ navItems }: { navItems: string[] | [] }) {
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
-            animeScroll()
-        })
+        window.addEventListener('scroll', animeScroll)
 
+        return () => window.removeEventListener("scroll", animeScroll);
     }, [])
 
     return (
-        <nav className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-700 opacity-100" id='header'>
+        //@ts-ignore
+        <nav className="flex flex-col bg-white top-0 sticky z-10 pt-1.5 shadow-lg ease-linear duration-700 opacity-100" id='header' ref={ref}>
             <section className="flex gap-3.5 min-w-full overflow-auto scroll-remove px-2 pb-2 scrollStyle" id='nav'>
                 {navItems.map((item, index) => (
                     <button
@@ -68,7 +68,7 @@ export default function Nav({ navItems }: { navItems: string[] | [] }) {
                         type="button"
                         onClick={() => { scrollToSectionNew(item) }}
                         id={`button${item}`}
-                        className={`${index == selectButton ?
+                        className={`${index == buttonSelected ?
                             "bg-white px-8 py-2 text-sm font-bold text-black w-auto border-black border-2 whitespace-nowrap buttons" :
                             "bg-white px-8 py-2 text-sm font-medium text-gray-700 border-2 w-auto whitespace-nowrap buttons"} `}
                     >
@@ -78,4 +78,6 @@ export default function Nav({ navItems }: { navItems: string[] | [] }) {
             </section>
         </nav >
     )
-}
+})
+
+export default Nav

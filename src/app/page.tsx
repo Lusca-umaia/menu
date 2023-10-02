@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef, Fragment } from 'react'
+import { useState, useEffect, useRef, Fragment, useMemo } from 'react'
 
 import Link from 'next/link'
 import { gaPlayVideo, gaViewVideo100, gaViewVideo25, gaViewVideo50, gaViewVideo75 } from "./components/Video/gtagHelper";
@@ -190,6 +190,7 @@ const favorites = [
 
 export default function Home() {
   const videoRefs = useRef<HTMLVideoElement[]>([]);
+  const header = useRef<HTMLElement>(null)
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -212,8 +213,7 @@ export default function Home() {
           if (entry.isIntersecting) {
             if (videoRefs.current[videoIndex]) {
               videoRefs.current[videoIndex].play();
-              const header = document.getElementById('header')
-              header ? header.style.zIndex = '2' : null
+              header.current ? header.current.style.zIndex = '2' : null
               if (!isPlaying) {
                 gaPlayVideo(videos_url[videoIndex].url)
                 setIsPlaying(true);
@@ -227,12 +227,10 @@ export default function Home() {
           } else {
             if (videoRefs.current[videoIndex]) {
               videoRefs.current[videoIndex].pause();
-
-              const header = document.getElementById('header')
-              header ? header.style.opacity = '0' : null
+              header.current ? header.current.style.opacity = '0' : null
               setTimeout(() => {
-                header ? header.style.zIndex = '20' : null
-                header ? header.style.opacity = '1' : null
+                header.current ? header.current.style.zIndex = '20' : null
+                header.current ? header.current.style.opacity = '1' : null
               }, 100);
 
             }
@@ -296,6 +294,9 @@ export default function Home() {
     };
   }, []);
 
+  const navItems = useMemo(() => {
+    return cards.map((item) => item.title)
+  }, [cards])
 
   return (
     <section className="bg-gray-100 min-h-screen max-w-lg mx-auto my-0 relative w-full">
@@ -306,13 +307,21 @@ export default function Home() {
           <h2 className="font-medium text-xs ext-gray-300">Cantina & Italiano</h2>
         </div>
       </header>
-      <Nav navItems={cards.map((item) => item.title)} />
+      <Nav
+        navItems={navItems}
+        ref={header}
+      />
       <main className="flex flex-col ">
         <CardFavorites favorites={favorites} />
         {mediaItems && mediaItems.map((item, index) => (
           <Fragment key={item.title}>
             {item.type == "card" ? (
-              <Card title={item.title} products={item.products ? item.products : []} buttonId={`button${item.title}`} idElement={item.title} />
+              <Card
+                title={item.title}
+                products={item.products ? item.products : []}
+                buttonId={`button${item.title}`}
+                idElement={item.title}
+              />
             ) : (
               <Video
                 setVideoLiked={setVideoLiked}

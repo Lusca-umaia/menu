@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.scrollStyle::-webkit-scrollbar {
-    height: 3px;
-}
-
-
 .shadowAlter {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
 .shadowAll {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.scrollStyle::-webkit-scrollbar {
+    height: 3px;
 }
 
 .scrollStyle::-webkit-scrollbar-thumb:hover {
