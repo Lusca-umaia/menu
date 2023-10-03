@@ -41,7 +41,7 @@ const mediaItems = [
         price: '100,00'
       },
       {
-        title: 'Ragu + Chá Gelado',
+        title: 'Ragu + Chá Gelado Com Ervas',
         description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
         link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
         href: '#',
@@ -83,7 +83,7 @@ const mediaItems = [
         price: '100,00'
       },
       {
-        title: 'Ragu + Chá Gelado',
+        title: 'Ragu + Chá Gelado Com Ervas',
         description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
         link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
         href: '#',
@@ -117,7 +117,7 @@ const mediaItems = [
         price: '100,00'
       },
       {
-        title: 'Ragu + Chá Gelado',
+        title: 'Ragu + Chá Gelado Com Ervas',
         description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
         link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
         href: '#',
@@ -151,7 +151,7 @@ const mediaItems = [
         price: '100,00'
       },
       {
-        title: 'Ragu + Chá Gelado',
+        title: 'Ragu + Chá Gelado Com Ervas',
         description: "ragu de carne • batata baby confit • picles de moranga • farofa de pão • couve",
         link: "https://tagmeimages.azureedge.net/?q=70&url=https://tagmepub.azureedge.net/pubimg/thumbs/MenuItem/81b49120-afa2-11ec-827e-bfa70ccd62ce.jpg&w=80&h=80&output=jpg&dpr=2",
         href: '#',
