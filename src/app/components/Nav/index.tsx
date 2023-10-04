@@ -26,32 +26,32 @@ const Nav = React.forwardRef(({ navItems }: { navItems: string[] }, ref: React.R
     }
   }, [])
 
-  const animeScroll = useCallback(() => {
-    const items = document.querySelectorAll('[data-anime]') as NodeListOf<HTMLHeadElement>
-    const windowTop = window.scrollY
+  useEffect(() => {
 
-    for (let index = 0; index < items.length; index++) {
-      if (index == 0 && index != items.length - 1) {
-        if (windowTop >= items[index].offsetTop - 100 && windowTop < items[index + 1].offsetTop - 100) {
-          scrollToSection(items[index].attributes[1].value, index)
+    function animeScroll() {
+      const items = document.querySelectorAll('[data-anime]') as NodeListOf<HTMLHeadElement>
+      const windowTop = window.scrollY
+
+      for (let index = 0; index < items.length; index++) {
+        if (index == 0 && index != items.length - 1) {
+          if (windowTop >= items[index].offsetTop - 100 && windowTop < items[index + 1].offsetTop - 100) {
+            scrollToSection(items[index].attributes[1].value, index)
+          }
+
         }
 
-      }
-
-      else if (index == items.length - 1) {
-        if (windowTop > (items[index].offsetTop - 300)) {
-          scrollToSection(items[index].attributes[1].value, index)
+        else if (index == items.length - 1) {
+          if (windowTop > (items[index].offsetTop - 300)) {
+            scrollToSection(items[index].attributes[1].value, index)
+          }
         }
-      }
-      else {
-        if (windowTop >= items[index].offsetTop - 100 && windowTop < items[index + 1].offsetTop - 100) {
-          scrollToSection(items[index].attributes[1].value, index)
+        else {
+          if (windowTop >= items[index].offsetTop - 100 && windowTop < items[index + 1].offsetTop - 100) {
+            scrollToSection(items[index].attributes[1].value, index)
+          }
         }
       }
     }
-  }, [])
-
-  useEffect(() => {
     window.addEventListener('scroll', animeScroll)
 
     return () => window.removeEventListener("scroll", animeScroll);

@@ -1,18 +1,17 @@
-import { useState, useEffect, useCallback, memo } from 'react'
+import { useState, useEffect } from 'react'
 import { HeartIcon } from '@heroicons/react/20/solid'
 
 function Footer() {
   const [scrolled, setScrolled] = useState(false);
 
-  const onScroll = useCallback(() => {
-    if (window.scrollY > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  }, [])
-
   useEffect(() => {
+    function onScroll() {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
 
     window.addEventListener("scroll", onScroll);
 

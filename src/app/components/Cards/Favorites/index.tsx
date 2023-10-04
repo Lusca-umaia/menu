@@ -30,4 +30,4 @@ function CardFavorites({ favorites }: { favorites: product[] }) {
   )
 }
 
-export default memo(CardFavorites)
+export default CardFavorites
