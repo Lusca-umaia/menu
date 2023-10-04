@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import Link from "next/link"
 
-export default function CardFavorites({ favorites }: { favorites: product[] }) {
+function CardFavorites({ favorites }: { favorites: product[] }) {
   return (
     <div className='shadow-lg'>
       <h2 className="pl-4 my-5 font-semibold text-base">Produtos mais vendidos</h2>
@@ -27,4 +28,6 @@ export default function CardFavorites({ favorites }: { favorites: product[] }) {
       </div>
     </div >
   )
-} 
+}
+
+export default memo(CardFavorites)

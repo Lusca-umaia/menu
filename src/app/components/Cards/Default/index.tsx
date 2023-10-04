@@ -1,11 +1,12 @@
 'use client'
+import { memo } from 'react'
 import Link from "next/link"
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Cards({ products, title, buttonId, idElement }: { products: product[], title: string, buttonId: string, idElement: string }) {
+function Cards({ products, title, buttonId, idElement }: { products: product[], title: string, buttonId: string, idElement: string }) {
 
   return (
     <div id={idElement} className="scroll-mt-14">
@@ -38,3 +39,5 @@ export default function Cards({ products, title, buttonId, idElement }: { produc
     </div >
   )
 }
+
+export default memo(Cards)
