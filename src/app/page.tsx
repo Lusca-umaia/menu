@@ -52,9 +52,9 @@ const mediaItems = [
   {
     type: 'video',
     order: 0,
-    url: "https://storage.googleapis.com/menuk/lb-involtini_1.mp4",
-    title: "Involtini al Quattro Formaggi - R$ 42",
-    subtitle: "A combinação dos quatro queijos que todo mundo ama! Mozzarella, catupiry, provolone e gorgonzola, enrolados pela nossa massa de pizza de longa fermentação, importasse diretamente da Itália",
+    url: "https://storage.googleapis.com/menuk-us/lb-rdonluiz.mp4",
+    title: "Expresso Mustache - R$ 34",
+    subtitle: "O drink assinado pelo Mustache leva vodka, licor de doce de leite Don Luiz e café expresso! Uma uma ótima opção para acompanhar uma entrada ou sobremesa",
     preload: "auto"
   },
   {
